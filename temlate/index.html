@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask MongoDB</title>
+</head>
+<body>
+
+<h1>Flask MongoDB</h1>
+
+<form action="/add-item" method="post">
+  <input type="text" name="item" placeholder="Enter item">
+  <input type="submit" value="Add Item">
+</form>
+
+<hr>
+
+<h2>Items</h2>
+
+<ul>
+{% for item in items %}
+  <li>{{ item["item"] }}</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<form action="/add-to-cart" method="post">
+  <input type="text" name="item_id" placeholder="Enter item ID">
+  <input type="text" name="user_id" placeholder="Enter user ID">
+  <input type="submit" value="Add to Cart">
+</form>
+
+<hr>
+
+<h2>Cart</h2>
+
+<ul>
+{% for item in items %}
+  <li>{{ item["item_id"] }}</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<form action="/checkout" method="post">
+  <input type="text" name="user_id" placeholder="Enter user ID">
+  <input type="submit" value="Checkout">
+</form>
+
+</body>
+</html>
